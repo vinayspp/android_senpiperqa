@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="snppsuite" >
+	<test name="Login and group tests" >
+		<classes>
+			<class name="com.spp.tests.LoginTest" />
+			<class name="com.spp.tests.GroupTests" />
+		</classes>
+	</test>
+</suite>
