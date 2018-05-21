@@ -39,6 +39,7 @@ public class MainPageObject {
 	@FindBy(how = How.ID, using = "com.senpiper.android:id/textViewGroupName")
 	List<WebElement> groups;
 
+	//Method to check if home page is loaded
 	public String homepageloaded() {
 		WebDriverWait w = new WebDriverWait(d, 30);
 		w.until(ExpectedConditions.visibilityOf(Senppr));
@@ -46,7 +47,7 @@ public class MainPageObject {
 		String s = Senppr.getText();
 		return s;
 	}
-
+    //Method to disable help tour
 	public void disabletour() throws InterruptedException {
 		System.out.println(chats.isDisplayed());
 		TouchAction a2 = new TouchAction((PerformsTouchActions) d);
@@ -54,7 +55,8 @@ public class MainPageObject {
 
 	}
 
-	public boolean createnewgroup() {
+	//Method to create new open group
+	public boolean createnewopengroup() {
 
 		boolean flag = false;
 		contextmenu.click();
@@ -64,8 +66,33 @@ public class MainPageObject {
 			break;
 		}
 		String gpname = CommonMethods.getDateTime();
-		groupname.sendKeys(gpname);
+		groupname.sendKeys(gpname+"open");
 		grouptype.click();
+		groupinfo.sendKeys(gpname);
+		next.click();
+		creategrp.click();
+		//check if the created group exists
+		for (WebElement gr : groups) {
+			if (gr.getText().contains(gpname)) {
+				flag = true;
+				break;
+			}
+		}
+		return flag;
+	}
+	//Method to create closed group
+	public boolean createnewclosedgroup() {
+
+		boolean flag = false;
+		contextmenu.click();
+		for (WebElement op : options) {
+			if (op.getText().contains("Create"))
+				op.click();
+			break;
+		}
+		String gpname = CommonMethods.getDateTime();
+		groupname.sendKeys(gpname+"closed");
+		//grouptype.click();
 		groupinfo.sendKeys(gpname);
 		next.click();
 		creategrp.click();

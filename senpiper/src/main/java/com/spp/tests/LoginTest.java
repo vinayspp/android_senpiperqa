@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import com.spp.pageobjects.LoginPageObject;
 import com.spp.pageobjects.MainPageObject;
 public class LoginTest extends BaseClass {
-
+    // Test Case to login in app
 	@Test(priority = 1)
 	public void verifylogin() throws InterruptedException, IOException {
 		try {

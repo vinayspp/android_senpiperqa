@@ -26,6 +26,7 @@ public class GroupPageObject {
 	@FindBy(how = How.ID, using = "com.senpiper.android:id/conversationWithTxt")
 	WebElement group_head;
 
+	//Method to add member to group
 	public void addmember() {
 		group_head.click();
 		add_member.click();
