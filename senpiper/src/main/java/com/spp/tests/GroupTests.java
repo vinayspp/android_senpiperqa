@@ -10,7 +10,7 @@ import com.spp.pageobjects.GroupPageObject;
 import com.spp.pageobjects.MainPageObject;
 
 public class GroupTests extends BaseClass {
-    //Test Case to create group
+    //Test Case to create open group
 	@Test(priority=2)
 	public void verifycCreateOpenGroup() throws InterruptedException, IOException {
 		try {
@@ -23,7 +23,7 @@ public class GroupTests extends BaseClass {
 			e.printStackTrace();
 		}
 	}
-	
+	//Test Case to create closed group
 	public void verifyCreateClosedGroup() throws InterruptedException, IOException {
 		try {
 			boolean flag = false;

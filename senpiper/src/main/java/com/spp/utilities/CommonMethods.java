@@ -11,7 +11,10 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
+import com.spp.pageobjects.WebLoginPageObject;
 import com.spp.tests.BaseClass;
 
 public class CommonMethods extends BaseClass{
@@ -51,5 +54,19 @@ public class CommonMethods extends BaseClass{
 		System.out.println(dateFormat.format(date)); // 2016/11/16 12:08:43
 		String now = dateFormat.format(date);
 		return now;
+	}
+	
+	public static void spploginchrome()
+	{
+		System.out.println("inspplogin");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\zopper\\Downloads\\Compressed\\chromedriver_win32\\chromedriver.exe");
+		 WebDriver cd = new ChromeDriver();
+		 WebLoginPageObject web=PageFactory.initElements(cd, WebLoginPageObject.class);
+		 web.login("demov2@zopper.com", "11111111");
+	}
+	
+	public static void spploginfirefox()
+	{
+		
 	}
 }
